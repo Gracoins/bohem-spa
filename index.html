@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bohem Spa &amp; Wellness — Esentepe, Kıbrıs</title>
+<meta name="description" content="Bohem Spa & Wellness — Esentepe'de uzman masaj terapistleri eşliğinde masaj, hamam, sauna, buhar odası ve kapalı havuz. Ruhunuzu ve bedeninizi yenileyin." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --black:#0b0a09;
+    --panel:#12100d;
+    --panel-2:#16130f;
+    --gold:#c8a24b;
+    --gold-soft:#d9bd7c;
+    --gold-deep:#9c7b34;
+    --cream:#f4ecdd;
+    --muted:#b3a892;
+    --line:rgba(200,162,75,.22);
+    --shadow:0 30px 80px -30px rgba(0,0,0,.85);
+    --ease:cubic-bezier(.19,1,.22,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--black);
+    color:var(--cream);
+    font-family:'Jost',sans-serif;
+    font-weight:300;
+    line-height:1.7;
+    letter-spacing:.02em;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--gold);color:var(--black)}
+  h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:500;line-height:1.05;letter-spacing:.01em}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+  .eyebrow{
+    font-family:'Jost',sans-serif;font-weight:500;font-size:.72rem;
+    letter-spacing:.42em;text-transform:uppercase;color:var(--gold);
+    display:inline-flex;align-items:center;gap:14px;
+  }
+  .eyebrow::before{content:"";width:34px;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
+  .center .eyebrow::after{content:"";width:34px;height:1px;background:linear-gradient(90deg,var(--gold),transparent)}
+
+  .goldwash{position:absolute;inset:0;pointer-events:none;opacity:.5;
+    background:
+      radial-gradient(60% 50% at 80% 0%,rgba(200,162,75,.14),transparent 60%),
+      radial-gradient(50% 40% at 0% 100%,rgba(200,162,75,.08),transparent 60%);}
+  .grain{position:fixed;inset:0;pointer-events:none;z-index:2;opacity:.045;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");}
+
+  header{position:fixed;top:0;left:0;right:0;z-index:50;transition:.5s var(--ease);
+    padding:22px 0;border-bottom:1px solid transparent;}
+  header.scrolled{background:rgba(11,10,9,.86);backdrop-filter:blur(14px);border-bottom-color:var(--line);padding:14px 0}
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:24px}
+  .brand{display:flex;align-items:center;gap:13px}
+  .brand .mark{width:40px;height:40px;flex:none;border-radius:50%;border:1px solid var(--gold);
+    display:grid;place-items:center;background:radial-gradient(circle at 50% 35%,#1c1811,#0b0a09);}
+  .brand .mark svg{width:22px;height:22px}
+  .brand b{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.4rem;letter-spacing:.28em;color:var(--cream)}
+  .brand i{font-style:normal;display:block;font-size:.54rem;letter-spacing:.46em;color:var(--gold);margin-top:-2px}
+  nav ul{display:flex;gap:34px;list-style:none}
+  nav ul a{font-size:.82rem;letter-spacing:.12em;color:var(--muted);transition:.3s;position:relative}
+  nav ul a::after{content:"";position:absolute;left:0;bottom:-6px;height:1px;width:0;background:var(--gold);transition:.35s var(--ease)}
+  nav ul a:hover{color:var(--cream)}nav ul a:hover::after{width:100%}
+  .navright{display:flex;align-items:center;gap:18px}
+  .lang{display:inline-flex;border:1px solid var(--line);border-radius:2px;overflow:hidden}
+  .langbtn{background:none;border:0;color:var(--muted);font-family:'Jost',sans-serif;font-size:.72rem;font-weight:500;
+    letter-spacing:.14em;padding:8px 12px;cursor:pointer;transition:.3s}
+  .langbtn.on{background:var(--gold);color:#231a06}
+  .btn{display:inline-flex;align-items:center;gap:10px;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;
+    padding:13px 26px;border-radius:2px;transition:.4s var(--ease);cursor:pointer;font-weight:500}
+  .btn-gold{background:linear-gradient(180deg,var(--gold-soft),var(--gold));color:#231a06;
+    box-shadow:0 10px 30px -10px rgba(200,162,75,.5)}
+  .btn-gold:hover{transform:translateY(-2px);box-shadow:0 16px 40px -12px rgba(200,162,75,.7)}
+  .btn-ghost{border:1px solid var(--line);color:var(--cream)}
+  .btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+  .navtoggle{display:none;background:none;border:0;color:var(--cream);font-size:1.5rem;cursor:pointer}
+
+  .hero{position:relative;min-height:100vh;display:flex;align-items:center;isolation:isolate;overflow:hidden}
+  .hero-bg{position:absolute;inset:0;z-index:-2;
+    background:url("img/1-havuz-gece.jpg") center/cover no-repeat;
+    transform:scale(1.08);animation:slowzoom 20s var(--ease) forwards}
+  @keyframes slowzoom{to{transform:scale(1)}}
+  .hero::after{content:"";position:absolute;inset:0;z-index:-1;
+    background:linear-gradient(90deg,rgba(11,10,9,.94) 0%,rgba(11,10,9,.72) 45%,rgba(11,10,9,.4) 100%),
+               linear-gradient(0deg,var(--black),transparent 45%)}
+  .hero-inner{padding-top:120px;max-width:720px}
+  .hero h1{font-size:clamp(3rem,8vw,6.4rem);margin:26px 0 8px}
+  .hero h1 em{font-style:italic;color:var(--gold);display:block}
+  .hero p.lead{font-size:1.12rem;color:var(--muted);max-width:520px;margin:22px 0 38px}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+  .hero-meta{display:flex;gap:38px;margin-top:56px;flex-wrap:wrap}
+  .hero-meta div{border-left:1px solid var(--line);padding-left:16px}
+  .hero-meta b{font-family:'Cormorant Garamond',serif;font-size:1.9rem;color:var(--gold);display:block;font-weight:600}
+  .hero-meta small{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  .scrollcue{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:1;
+    font-size:.62rem;letter-spacing:.4em;text-transform:uppercase;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:10px}
+  .scrollcue span{width:1px;height:44px;background:linear-gradient(var(--gold),transparent);animation:cue 2s infinite}
+  @keyframes cue{0%,100%{opacity:.3;transform:scaleY(.6)}50%{opacity:1;transform:scaleY(1)}}
+
+  section{position:relative}
+  .pad{padding:120px 0}
+  .center{text-align:center}
+  .center .eyebrow{justify-content:center}
+  .stitle{font-size:clamp(2.4rem,5vw,4rem);margin:20px 0}
+  .stitle em{font-style:italic;color:var(--gold)}
+  .lede{color:var(--muted);max-width:620px;margin:0 auto;font-size:1.05rem}
+
+  .about{display:grid;grid-template-columns:1.05fr .95fr;gap:70px;align-items:center}
+  .about-img{position:relative}
+  .about-img img{border-radius:2px;filter:saturate(.9) brightness(.92);box-shadow:var(--shadow)}
+  .about-img .frame{position:absolute;inset:16px;border:1px solid var(--line);pointer-events:none}
+  .about-img .badge{position:absolute;right:-26px;bottom:34px;background:var(--panel);border:1px solid var(--line);
+    padding:20px 26px;text-align:center;box-shadow:var(--shadow)}
+  .about-img .badge b{font-family:'Cormorant Garamond',serif;color:var(--gold);font-size:2.4rem;display:block;font-weight:600}
+  .about-img .badge small{font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+  .about h2{font-size:clamp(2.2rem,4.5vw,3.4rem);margin:18px 0 22px}
+  .about h2 em{font-style:italic;color:var(--gold)}
+  .about p{color:var(--muted);margin-bottom:18px}
+  .about .sign{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.5rem;color:var(--gold);margin-top:14px}
+
+  .amen-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--line);border:1px solid var(--line)}
+  .amen{background:var(--panel);padding:44px 34px;transition:.5s var(--ease);position:relative;overflow:hidden}
+  .amen:hover{background:var(--panel-2)}
+  .amen .ic{width:46px;height:46px;color:var(--gold);margin-bottom:22px}
+  .amen h3{font-size:1.7rem;margin-bottom:10px}
+  .amen p{color:var(--muted);font-size:.95rem}
+  .amen::before{content:"";position:absolute;left:0;top:0;height:2px;width:0;background:var(--gold);transition:.5s var(--ease)}
+  .amen:hover::before{width:100%}
+
+  .pack-wrap{background:var(--panel);position:relative}
+  .pack-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:30px;margin-top:56px}
+  .card{position:relative;border:1px solid var(--line);background:linear-gradient(180deg,var(--panel-2),var(--black));
+    padding:44px 40px 40px;transition:.5s var(--ease);overflow:hidden}
+  .card:hover{transform:translateY(-6px);border-color:var(--gold)}
+  .card .tag{font-size:.68rem;letter-spacing:.34em;text-transform:uppercase;color:var(--gold)}
+  .card h3{font-size:2.1rem;margin:8px 0 4px}
+  .card .price{display:flex;align-items:baseline;gap:8px;margin:14px 0 26px;
+    border-bottom:1px solid var(--line);padding-bottom:26px}
+  .card .price b{font-family:'Cormorant Garamond',serif;font-size:3.4rem;font-weight:600;color:var(--cream);line-height:1}
+  .card .price span{font-size:1rem;letter-spacing:.18em;color:var(--gold)}
+  .card ul{list-style:none;display:flex;flex-direction:column;gap:13px}
+  .card ul li{display:flex;gap:13px;align-items:flex-start;color:var(--muted);font-size:.98rem}
+  .card ul li svg{width:17px;height:17px;color:var(--gold);flex:none;margin-top:5px}
+  .card .btn{width:100%;justify-content:center;margin-top:32px}
+  .card.featured{border-color:rgba(200,162,75,.5);box-shadow:0 0 0 1px rgba(200,162,75,.12),var(--shadow)}
+  .card.featured .ribbon{position:absolute;top:22px;right:-40px;transform:rotate(45deg);
+    background:linear-gradient(180deg,var(--gold-soft),var(--gold));color:#231a06;font-size:.6rem;
+    letter-spacing:.22em;text-transform:uppercase;padding:6px 50px;font-weight:600}
+  .pack-note{text-align:center;margin-top:40px;color:var(--muted);font-size:.9rem;letter-spacing:.06em}
+
+  .gal{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:240px;gap:12px;margin-top:56px}
+  .gal figure{overflow:hidden;position:relative;background:var(--panel)}
+  .gal figure img{width:100%;height:100%;object-fit:cover;filter:saturate(.9) brightness(.9);transition:1.2s var(--ease)}
+  .gal figure:hover img{transform:scale(1.06);filter:saturate(1) brightness(1)}
+  .gal .big{grid-column:span 2;grid-row:span 2}
+  .gal .tall{grid-row:span 2}
+
+  .rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:56px}
+  .rev{border:1px solid var(--line);background:var(--panel);padding:34px 30px}
+  .rev .stars{color:var(--gold);letter-spacing:4px;margin-bottom:16px}
+  .rev p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.25rem;color:var(--cream);line-height:1.5}
+  .rev .who{margin-top:22px;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+
+  .contact{background:var(--panel);border-top:1px solid var(--line)}
+  .cgrid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);margin-top:56px}
+  .cinfo{padding:56px 50px;display:flex;flex-direction:column;gap:30px}
+  .cinfo .row{display:flex;gap:18px;align-items:flex-start}
+  .cinfo .row svg{width:22px;height:22px;color:var(--gold);flex:none;margin-top:3px}
+  .cinfo .row b{display:block;font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:var(--cream);font-weight:500}
+  .cinfo .row span{color:var(--muted);font-size:.95rem}
+  .cinfo .actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px}
+  .cmap{min-height:100%;position:relative;filter:grayscale(.3) contrast(1.05)}
+  .cmap iframe{width:100%;height:100%;border:0;min-height:440px;filter:invert(.9) hue-rotate(180deg)}
+
+  footer{padding:60px 0 40px;text-align:center;border-top:1px solid var(--line)}
+  footer .brand{justify-content:center;margin-bottom:20px}
+  footer .fnav{display:flex;gap:28px;justify-content:center;flex-wrap:wrap;margin:18px 0 26px}
+  footer .fnav a{font-size:.8rem;letter-spacing:.1em;color:var(--muted);transition:.3s}
+  footer .fnav a:hover{color:var(--gold)}
+  footer small{color:#6d6656;font-size:.74rem;letter-spacing:.08em}
+
+  .wa{position:fixed;right:24px;bottom:24px;z-index:60;width:58px;height:58px;border-radius:50%;
+    background:#25d366;display:grid;place-items:center;box-shadow:0 12px 30px -8px rgba(37,211,102,.6);transition:.3s}
+  .wa:hover{transform:scale(1.08)}
+  .wa svg{width:30px;height:30px;fill:#fff}
+
+  .reveal{opacity:0;transform:translateY(34px);transition:1s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+  .reveal.d1{transition-delay:.12s}.reveal.d2{transition-delay:.24s}.reveal.d3{transition-delay:.36s}
+
+  @media(max-width:900px){
+    nav ul,.nav .btn.desk{display:none}
+    .navtoggle{display:block}
+    .about{grid-template-columns:1fr;gap:44px}
+    .about-img .badge{right:20px}
+    .amen-grid{grid-template-columns:1fr 1fr}
+    .pack-grid,.rev-grid,.cgrid{grid-template-columns:1fr}
+    .gal{grid-template-columns:1fr 1fr;grid-auto-rows:170px}
+    .pad{padding:84px 0}
+    .hero-meta{gap:24px}
+    nav.open ul{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;
+      background:rgba(11,10,9,.97);backdrop-filter:blur(14px);padding:26px;gap:20px;border-top:1px solid var(--line)}
+  }
+  @media(max-width:560px){
+    .amen-grid,.gal{grid-template-columns:1fr}
+    .gal .big{grid-column:span 1}
+    .wrap{padding:0 20px}
+  }
+</style>
+</head>
+<body>
+<div class="grain"></div>
+
+<!-- NAV -->
+<header id="head">
+  <div class="wrap">
+    <div class="nav">
+      <a class="brand" href="#top">
+        <span class="mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#c8a24b" stroke-width="1.2"><path d="M12 3c1.6 0 2.6 1.2 2.6 2.6 0 1-.5 1.7-1.2 2.3 2.3.6 4 2.7 4 5.2 0 .9-.2 1.6-.6 2.3H7.2c-.4-.7-.6-1.4-.6-2.3 0-2.5 1.7-4.6 4-5.2-.7-.6-1.2-1.3-1.2-2.3C9.4 4.2 10.4 3 12 3Z"/><path d="M5 18.5c2 1.2 4.4 1.8 7 1.8s5-.6 7-1.8"/></svg>
+        </span>
+        <span style="display:block"><b>BOHEM</b><i>Spa &amp; Wellness</i></span>
+      </a>
+      <nav id="nav">
+        <ul>
+          <li><a href="#about" data-en="About">Hakkımızda</a></li>
+          <li><a href="#amenities" data-en="Facilities">İmkanlar</a></li>
+          <li><a href="#packages" data-en="Offers">Kampanya</a></li>
+          <li><a href="#gallery" data-en="Gallery">Galeri</a></li>
+          <li><a href="#contact" data-en="Contact">İletişim</a></li>
+        </ul>
+      </nav>
+      <div class="navright">
+        <div class="lang">
+          <button class="langbtn on" data-l="tr">TR</button>
+          <button class="langbtn" data-l="en">EN</button>
+        </div>
+        <a class="btn btn-gold desk" href="https://wa.me/905469993141" target="_blank" rel="noopener" data-en="Book Now">Rezervasyon</a>
+      </div>
+      <button class="navtoggle" id="navtoggle" aria-label="Menü">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="wrap">
+    <div class="hero-inner">
+      <span class="eyebrow reveal in" data-en="Esentepe · Cyprus">Esentepe · Kıbrıs</span>
+      <h1 class="reveal in d1" data-en="A gateway to<em>serenity.</em>">Huzura açılan<em>bir kapı.</em></h1>
+      <p class="lead reveal in d2" data-en="Renew your body and soul with our expert massage therapists — the perfect harmony of massage, traditional Turkish bath, sauna, steam room and indoor pool.">Uzman masaj terapistleri eşliğinde ruhunuzu ve bedeninizi yenileyin. Masaj, geleneksel hamam, sauna, buhar odası ve kapalı havuzun kusursuz uyumu.</p>
+      <div class="hero-cta reveal in d3">
+        <a class="btn btn-gold" href="#packages" data-en="View Offers">Kampanyaları Gör</a>
+        <a class="btn btn-ghost" href="tel:+905469993141">+90 546 999 31 41</a>
+      </div>
+      <div class="hero-meta reveal in d3">
+        <div><b>13.4B+</b><small data-en="Happy Followers">Mutlu Takipçi</small></div>
+        <div><b>10:00–23:00</b><small data-en="Open Daily">Her Gün Açık</small></div>
+        <div><b>5★</b><small data-en="Guest Experience">Misafir Deneyimi</small></div>
+      </div>
+    </div>
+  </div>
+  <div class="scrollcue"><span style="order:-1"></span><span data-en="Explore" style="width:auto;height:auto;background:none;animation:none">Keşfet</span><span></span></div>
+</section>
+
+<!-- ABOUT -->
+<section class="pad" id="about">
+  <div class="goldwash"></div>
+  <div class="wrap about">
+    <div class="about-img reveal">
+      <img src="img/4-masaj-detay.jpg" alt="Bohem Spa masaj odası" />
+      <div class="frame"></div>
+      <div class="badge"><b>2</b><small data-en="Special Offer Packages">Özel Kampanya Paketi</small></div>
+    </div>
+    <div>
+      <span class="eyebrow reveal" data-en="About Us">Hakkımızda</span>
+      <h2 class="reveal d1" data-en="A sanctuary away<em> from the city's rush.</em>">Şehrin telaşından<em> uzak bir sığınak.</em></h2>
+      <p class="reveal d1" data-en="Bohem Spa &amp; Wellness, in the heart of Esentepe, offers a haven of calm where you can surrender both body and mind. Every session — where warm stones, aromatic oils and expert hands meet — is designed to wash away the fatigue of the day.">Bohem Spa &amp; Wellness, Esentepe'nin kalbinde bedeninize ve zihninize kendinizi bırakabileceğiniz bir dinginlik alanı sunar. Sıcak taşların, aromatik yağların ve uzman ellerin buluştuğu her seans, sizi günlük yorgunluktan arındırmak için tasarlandı.</p>
+      <p class="reveal d2" data-en="From the traditional Turkish bath to modern massage techniques, from the sauna and steam room to the indoor pool, every facility serves a single purpose: your true renewal.">Geleneksel Türk hamamından modern masaj tekniklerine, sauna ve buhar odasından kapalı havuza kadar tüm imkanlarımız tek bir amaca hizmet eder: gerçek anlamda yenilenmeniz.</p>
+      <div class="sign reveal d2" data-en="Renew your body and soul.">Ruhunuzu ve bedeninizi yenileyin.</div>
+    </div>
+  </div>
+</section>
+
+<!-- AMENITIES -->
+<section class="pad" id="amenities" style="padding-top:20px">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:10px">
+      <span class="eyebrow reveal" data-en="Experience">Deneyim</span>
+      <h2 class="stitle reveal d1" data-en="Facilities <em>just for you</em>">Size özel <em>imkanlar</em></h2>
+      <p class="lede reveal d2" data-en="Enjoy every privilege of a complete spa experience on each visit.">Her ziyaretinizde tam bir spa deneyiminin tüm ayrıcalıklarına erişin.</p>
+    </div>
+    <div class="amen-grid reveal d1" style="margin-top:50px">
+      <div class="amen">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M4 20c2-3 4-4 8-4s6 1 8 4"/><path d="M8 12c1.3-1.5 2.6-2 4-2s2.7.5 4 2"/><circle cx="12" cy="6" r="2"/></svg>
+        <h3 data-en="Full Body Massage">Tüm Vücut Masajı</h3><p data-en="A relaxing 50-minute full body massage by our expert therapists.">Uzman terapistlerimizce uygulanan 50 dakikalık rahatlatıcı tüm vücut masajı.</p>
+      </div>
+      <div class="amen">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 3c-3 3-3 5-3 6a3 3 0 0 0 6 0c0-1 0-3-3-6Z"/><path d="M4 21h16"/><path d="M6 21c0-3 2-5 6-5s6 2 6 5"/></svg>
+        <h3 data-en="Hammam &amp; Scrub-Foam">Hamam &amp; Kese-Köpük</h3><p data-en="A purifying scrub and rich foam massage ritual in the traditional Turkish bath.">Geleneksel Türk hamamında arındırıcı kese ve bol köpüklü masaj ritüeli.</p>
+      </div>
+      <div class="amen">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M8 4v3M12 4v3M16 4v3"/><rect x="4" y="9" width="16" height="11" rx="2"/><path d="M8 13v3M12 13v3M16 13v3"/></svg>
+        <h3 data-en="Sauna">Sauna</h3><p data-en="A warm Finnish sauna that relaxes muscles and boosts circulation.">Kaslarınızı gevşeten, kan dolaşımını canlandıran sıcak Fin saunası.</p>
+      </div>
+      <div class="amen">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M7 4c-1 2 1 3 0 5M12 4c-1 2 1 3 0 5M17 4c-1 2 1 3 0 5"/><rect x="4" y="10" width="16" height="10" rx="2"/></svg>
+        <h3 data-en="Steam Room">Buhar Odası</h3><p data-en="Aromatic steam therapy that purifies your skin and opens your airways.">Cildinizi arındıran, nefesinizi açan aromatik buhar terapisi.</p>
+      </div>
+      <div class="amen">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 15c1.5 1.2 3 1.2 4.5 0S10.5 13.8 12 15s3 1.2 4.5 0S19.5 13.8 21 15"/><path d="M3 19c1.5 1.2 3 1.2 4.5 0S10.5 17.8 12 19s3 1.2 4.5 0S19.5 17.8 21 19"/><path d="M8 10l4-4 4 4"/></svg>
+        <h3 data-en="Indoor Pool">Kapalı Havuz</h3><p data-en="Relax and cool off in our year-round heated indoor pool.">Yıl boyu ısıtılan kapalı havuzumuzda dinlenin ve serinleyin.</p>
+      </div>
+      <div class="amen">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="8"/><path d="M8 12a4 4 0 0 0 8 0"/><path d="M12 4v2M12 18v2"/></svg>
+        <h3 data-en="Refreshments &amp; Details">İkram &amp; Detaylar</h3><p data-en="A holistic experience completed with a fruit plate, soft drink and face mask.">Meyve tabağı, soft içecek ve yüz maskesiyle tamamlanan bütünsel deneyim.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section class="pack-wrap pad" id="packages">
+  <div class="goldwash"></div>
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow reveal" data-en="Limited Time">Sınırlı Süreli</span>
+      <h2 class="stitle reveal d1" data-en="Big <em>Campaign</em>">Dev <em>Kampanya</em></h2>
+      <p class="lede reveal d2" data-en="Two special packages, one goal: giving yourself the break you deserve.">İki özel paket, tek bir amaç: kendinize hak ettiğiniz molayı vermek.</p>
+    </div>
+
+    <div class="pack-grid">
+      <div class="card reveal d1">
+        <div class="tag" data-en="Package 1">Paket 1</div>
+        <h3 data-en="The Relaxation Ritual">Dinlenme Ritüeli</h3>
+        <div class="price"><b>2.800</b><span>TL</span></div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l5 5L20 6"/></svg><span data-en="50 min full body massage">50 dk tüm vücut masajı</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l5 5L20 6"/></svg><span data-en="Fruit plate">Meyve tabağı</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l5 5L20 6"/></svg><span data-en="Soft drink">Soft içecek</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l5 5L20 6"/></svg><span data-en="Sauna">Sauna</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l5 5L20 6"/></svg><span data-en="Steam room">Buhar odası</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l5 5L20 6"/></svg><span data-en="Indoor pool access">Kapalı havuz kullanımı</span></li>
+        </ul>
+        <a class="btn btn-ghost" href="https://wa.me/905469993141?text=Merhaba,%20Paket%201%20için%20rezervasyon%20yaptırmak%20istiyorum." target="_blank" rel="noopener" data-en="Book Now">Rezervasyon Yap</a>
+      </div>
+
+      <div class="card featured reveal d2">
+        <div class="ribbon" data-en="Popular">Popüler</div>
+        <div class="tag" data-en="Package 2">Paket 2</div>
+        <h3 data-en="Total Renewal">Bütünsel Yenilenme</h3>
+        <div class="price"><b>3.800</b><span>TL</span></div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l5 5L20 6"/></svg><span data-en="50 min full body massage">50 dk tüm vücut masajı</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l5 5L20 6"/></svg><span data-en="30 min hammam scrub &amp; foam massage">30 dk hamamda kese-köpük masajı</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l5 5L20 6"/></svg><span data-en="Fruit platter">Meyve tabağı</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l5 5L20 6"/></svg><span data-en="Face mask">Yüz maskesi</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l5 5L20 6"/></svg><span data-en="Soft drink">Soft içecek</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l5 5L20 6"/></svg><span data-en="Sauna &amp; steam room">Sauna &amp; buhar odası</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l5 5L20 6"/></svg><span data-en="Indoor pool access">Kapalı havuz kullanımı</span></li>
+        </ul>
+        <a class="btn btn-gold" href="https://wa.me/905469993141?text=Merhaba,%20Paket%202%20için%20rezervasyon%20yaptırmak%20istiyorum." target="_blank" rel="noopener" data-en="Book Now">Rezervasyon Yap</a>
+      </div>
+    </div>
+    <p class="pack-note reveal" data-en="✦ Offer valid for a limited time. Please book your appointment in advance.">✦ Kampanya sınırlı süre için geçerlidir. Randevu için lütfen önceden yer ayırtınız.</p>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="pad" id="gallery">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow reveal" data-en="Ambiance">Ambiyans</span>
+      <h2 class="stitle reveal d1" data-en="Moments from <em>Bohem</em>">Bohem'den <em>kareler</em></h2>
+    </div>
+    <div class="gal reveal d1">
+      <figure class="big"><img src="img/1-havuz-gece.jpg" alt="Kapalı havuz" loading="lazy"></figure>
+      <figure><img src="img/2-havuz-sezlong.jpg" alt="Havuz kenarı dinlenme" loading="lazy"></figure>
+      <figure><img src="img/3-hamam.jpg" alt="Türk hamamı" loading="lazy"></figure>
+      <figure class="tall"><img src="img/5-masaj-odasi.jpg" alt="Masaj odası" loading="lazy"></figure>
+      <figure><img src="img/4-masaj-detay.jpg" alt="Masaj hazırlığı" loading="lazy"></figure>
+      <figure><img src="img/6-bahce.jpg" alt="Bahçe ve şelale" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="pad" style="padding-top:20px">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow reveal" data-en="Our Guests">Misafirlerimiz</span>
+      <h2 class="stitle reveal d1" data-en="The experience <em>in words</em>">Kelimelerle <em>deneyim</em></h2>
+    </div>
+    <div class="rev-grid">
+      <div class="rev reveal d1"><div class="stars">★★★★★</div><p data-en="“The scrub-foam massage was incredible — it washed away hours of fatigue. The staff are so attentive.”">“Kese-köpük masajı inanılmazdı, saatlerce süren bir yorgunluğu üzerimden attı. Personel çok ilgili.”</p><div class="who">Selin K.</div></div>
+      <div class="rev reveal d2"><div class="stars">★★★★★</div><p data-en="“The atmosphere is truly peaceful. Sauna, pool and massage all together — the best in Esentepe.”">“Ortam gerçekten huzur veriyor. Sauna, havuz ve masaj bir arada — Esentepe'nin en iyisi.”</p><div class="who">Murat A.</div></div>
+      <div class="rev reveal d3"><div class="stars">★★★★★</div><p data-en="“We took Package 2 — every detail is thought through. The fruit plate and face mask were a lovely touch.”">“Paket 2'yi aldık, her detay düşünülmüş. Meyve tabağı ve yüz maskesi çok hoş bir dokunuştu.”</p><div class="who">Deniz Y.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact pad" id="contact">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow reveal" data-en="Contact">İletişim</span>
+      <h2 class="stitle reveal d1" data-en="Book your <em>appointment</em>">Randevunuzu <em>ayırtın</em></h2>
+      <p class="lede reveal d2" data-en="We would be delighted to welcome you to our haven of peace in Esentepe.">Sizi Esentepe'deki huzur köşemizde ağırlamaktan mutluluk duyarız.</p>
+    </div>
+    <div class="cgrid reveal d1">
+      <div class="cinfo">
+        <div class="row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M21 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 1 4.2 2 2 0 0 1 3 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L7 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7A2 2 0 0 1 21 16.9Z"/></svg>
+          <div><b>+90 546 999 31 41</b><span data-en="Reservations &amp; information line">Rezervasyon ve bilgi hattı</span></div>
+        </div>
+        <div class="row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div><b data-en="Esentepe, Cyprus">Esentepe, Kıbrıs</b><span>Bohem Spa &amp; Wellness</span></div>
+        </div>
+        <div class="row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          <div><b data-en="Every Day 10:00 – 23:00">Her Gün 10:00 – 23:00</b><span data-en="At your service seven days a week">Haftanın yedi günü hizmetinizdeyiz</span></div>
+        </div>
+        <div class="row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1" fill="currentColor"/></svg>
+          <div><b>@bohemspa.cyprus</b><span data-en="Follow us on Instagram">Instagram'da bizi takip edin</span></div>
+        </div>
+        <div class="actions">
+          <a class="btn btn-gold" href="https://wa.me/905469993141" target="_blank" rel="noopener" data-en="Message on WhatsApp">WhatsApp'tan Yaz</a>
+          <a class="btn btn-ghost" href="https://instagram.com/bohemspa.cyprus" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+      <div class="cmap">
+        <iframe title="Bohem Spa" loading="lazy" src="https://www.google.com/maps?q=35.342979,33.534257&z=15&output=embed"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="#c8a24b" stroke-width="1.2"><path d="M12 3c1.6 0 2.6 1.2 2.6 2.6 0 1-.5 1.7-1.2 2.3 2.3.6 4 2.7 4 5.2 0 .9-.2 1.6-.6 2.3H7.2c-.4-.7-.6-1.4-.6-2.3 0-2.5 1.7-4.6 4-5.2-.7-.6-1.2-1.3-1.2-2.3C9.4 4.2 10.4 3 12 3Z"/><path d="M5 18.5c2 1.2 4.4 1.8 7 1.8s5-.6 7-1.8"/></svg></span>
+      <span style="display:block"><b>BOHEM</b><i>Spa &amp; Wellness</i></span>
+    </a>
+    <div class="fnav">
+      <a href="#about" data-en="About">Hakkımızda</a><a href="#amenities" data-en="Facilities">İmkanlar</a><a href="#packages" data-en="Offers">Kampanya</a><a href="#gallery" data-en="Gallery">Galeri</a><a href="#contact" data-en="Contact">İletişim</a>
+    </div>
+    <small data-en="© 2026 Bohem Spa &amp; Wellness · Esentepe, Cyprus · Open daily 10:00–23:00">© 2026 Bohem Spa &amp; Wellness · Esentepe, Kıbrıs · Her gün 10:00–23:00</small>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/905469993141" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32"><path d="M16 3C9 3 3.5 8.5 3.5 15.5c0 2.3.6 4.5 1.8 6.4L3 29l7.3-2.2c1.8 1 3.8 1.5 5.7 1.5 7 0 12.5-5.5 12.5-12.5S23 3 16 3Zm0 22.7c-1.8 0-3.5-.5-5-1.4l-.4-.2-4.3 1.3 1.3-4.2-.3-.4a10 10 0 0 1-1.6-5.3C5.7 9.8 10.3 5.3 16 5.3S26.3 9.8 26.3 15.5 21.7 25.7 16 25.7Zm5.7-7.7c-.3-.2-1.8-.9-2.1-1s-.5-.2-.7.2-.8 1-.9 1.2-.3.2-.6.1a8.3 8.3 0 0 1-2.4-1.5 9 9 0 0 1-1.7-2.1c-.2-.3 0-.5.1-.6l.5-.5.3-.5c.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.2 3.4 5.3 4.7.7.3 1.3.5 1.8.7.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4l-.6-.3Z"/></svg>
+</a>
+
+<script>
+  const head=document.getElementById('head');
+  addEventListener('scroll',()=>head.classList.toggle('scrolled',scrollY>40));
+  const nav=document.getElementById('nav'),tog=document.getElementById('navtoggle');
+  tog.addEventListener('click',()=>nav.classList.toggle('open'));
+  nav.addEventListener('click',e=>{if(e.target.tagName==='A')nav.classList.remove('open')});
+  const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.14});
+  document.querySelectorAll('.reveal:not(.in)').forEach(el=>io.observe(el));
+
+  // ---- language toggle ----
+  const i18n=document.querySelectorAll('[data-en]');
+  function setLang(l){
+    i18n.forEach(el=>{
+      if(!el.dataset.tr) el.dataset.tr=el.innerHTML;
+      el.innerHTML = (l==='en') ? el.dataset.en : el.dataset.tr;
+    });
+    document.documentElement.lang=l;
+    try{localStorage.setItem('bohem-lang',l)}catch(e){}
+    document.querySelectorAll('.langbtn').forEach(b=>b.classList.toggle('on',b.dataset.l===l));
+  }
+  document.querySelectorAll('.langbtn').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.l)));
+  let saved='tr';try{saved=localStorage.getItem('bohem-lang')||'tr'}catch(e){}
+  if(saved==='en') setLang('en');
+</script>
+</body>
+</html>
